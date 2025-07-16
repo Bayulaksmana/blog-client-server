@@ -4,10 +4,10 @@ import { format } from "timeago.js"
 
 export const PostListItem = ({ post }) => {
     return (
-        <div className="flex flex-col lg:flex-row gap-8 mb-12">
+        <div className="flex flex-col lg:flex-row gap-8 mb-8">
             {/* image */}
-            {post.img && <div className="md:hidden xl:block sm:w-full xl:w-1/3">
-                <Image src={post.img} className="rounded-2xl shadow-lg object-cover" w="500" />
+            {post.img && <div className="md:hidden xl:block sm:w-full xl:w-1/3 relative size-64">
+                <Image src={post.img} className="rounded-2xl shadow-lg object-cover h-full w-full"/>
             </div>}
             {/* details */}
             <div className="flex flex-col gap-2 justify-between xl:w-2/3">

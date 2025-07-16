@@ -24,19 +24,19 @@ const SinglePostList = () => {
         <div className="flex flex-col gap-8">
             {/* detail */}
             <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-4/6 lg:w-4/6 xl:w-4/6 flex flex-col gap-8">
-                    <h1 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold mt-6 mr-8 text-center lg:text-justify">{data.title}</h1>
-                    <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm -mt-4 -mb-4">
+                <div className="md:w-4/6 lg:w-4/6 xl:w-4/6 flex flex-col gap-8 w-full">
+                    <h1 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold mt-6 mr-8 text-center lg:text-justify w-full">{data.title}</h1>
+                    <div className="flex items-center gap-2 text-gray-400 text-sm sm:text-sm -mt-4 -mb-4 w-full">
                         <span className="hidden md:block">Created by.</span>
-                        <Link className="text-blue-800 font-medium">{data.user?.username}</Link>
+                        <Link className="text-blue-800 font-medium uppercase">{data.user?.username}</Link>
                         <span className="">on</span>
-                        <Link className="text-blue-800 font-medium">{data.category}</Link>
+                        <Link className="text-blue-800 font-medium uppercase">{data.category}</Link>
                         <span className="">{format(data.createdAt)}</span>
                     </div>
-                    <p className="text-gray-500 font-medium text-justify mr-8">{data.desc}</p>
+                    <p className="text-gray-500 font-medium text-justify mr-8 w-full">PROLOG ~ &quot;{data.desc}&quot; ~</p>
                 </div>
-                {data.img && <div className="md:w-2/6 lg:w-2/6 xl:w-2/6">
-                    <Image src={data.img} w="600" className="rounded-2xl" />
+                {data.img && <div className="md:w-2/6 lg:w-2/6 xl:w-2/6 lg:flex lg:justify-end lg:h-80">
+                    <Image src={data.img} w="350" className="rounded-2xl w-full" />
                 </div>}
             </div>
             {/* content */}

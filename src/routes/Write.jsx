@@ -39,7 +39,7 @@ const Write = () => {
     }
     if (isLoaded && !isSignedIn) {
         return <div className="flex flex-col gap-4">
-            <h1 className="font-medium text-2xl text-center -mb-16 ">You must be login!</h1>
+            <h1 className="font-medium text-2xl text-center -mb-12 ">You must be login!</h1>
             <LoginPage />
         </div>
     }
