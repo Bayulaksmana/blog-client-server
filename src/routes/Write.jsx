@@ -14,54 +14,12 @@ import Noted from "../components/Noted";
 
 
 const Write = () => {
-
-    // const modules = {
-    //     toolbar: [
-    //         [{
-    //             'font': ['sans-serif', 'serif', 'monospace', 'montserrat', 'raleway', 'open-sans', 'ubuntu',]
-    //         }, { 'size': ['small', false, 'large', 'huge'] }],
-    //         [{ 'color': [] }, { 'background': [] }],
-    //         ['bold', 'italic', 'underline', 'strike'],
-    //         [{ 'script': 'sub' }, { 'script': 'super' }],
-    //         [{ 'header': 1 }, { 'header': 2 }],
-    //         [{ 'list': 'ordered' }],
-    //         [{ 'list': 'bullet' }],
-    //         [{ 'indent': '-1' }, { 'indent': '+1' }],
-    //         [{ 'align': [] }],
-    //         ['blockquote', 'code-block'],
-    //         ['link', 'image', 'video'],
-    //         ['clean'],
-    //     ],
-    // };
-
-    // const formats = [
-    //     'font', 'size', 'color', 'background',
-    //     'bold', 'italic', 'underline', 'strike',
-    //     'script', 'header',
-    //     'list',
-    //     'indent',
-    //     'align',
-    //     'blockquote', 'code-block',
-    //     'link', 'image', 'video',
-    // ];
-
     const { isLoaded, isSignedIn } = useUser();
     const [value, setValue] = useState("")
     const [cover, setCover] = useState("")
-    // const [img, setImg] = useState("")
-    // const [video, setVideo] = useState("")
     const [progress, setProgress] = useState(0)
-
-    // useEffect(() => {
-    //     img && setValue(prev => prev + `<p><image src="${img.url}" class="w-full h-auto"/></p>`)
-    // }, [img])
-    // useEffect(() => {
-    //     video && setValue(prev => prev + `<p><iframe class="ql-video" src="${video.url}"</p>`)
-    // }, [video])
-
     const navigate = useNavigate()
     const { getToken } = useAuth()
-
     const mutation = useMutation({
         mutationFn: async (newPost) => {
             const token = await getToken()
@@ -76,22 +34,18 @@ const Write = () => {
             navigate(`/${res.data.slug}`)
         },
     });
-
     if (!isLoaded) {
         return <div className="">Loading ...</div>
     }
-
     if (isLoaded && !isSignedIn) {
         return <div className="flex flex-col gap-4">
             <h1 className="font-medium text-2xl text-center -mb-16 ">You must be login!</h1>
             <LoginPage />
         </div>
     }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target)
-
         const data = {
             img: cover.filePath || "",
             title: formData.get("title"),
@@ -99,13 +53,10 @@ const Write = () => {
             desc: formData.get("desc"),
             content: value,
         }
-        // console.log(data)
         if (!cover?.filePath) return toast.error("Cover image is required!");
         mutation.mutate(data)
     }
-
     return (
-
         <div className='relative h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex flex-col gap-2 mt-4'>
             <Noted link="/" title="Home" page="Created" />
             <h1 className="text-xl font-medium text-center text-gray-500 mt-4">Create a New Post</h1>
@@ -133,28 +84,6 @@ const Write = () => {
                 </div>
                 <textarea name="desc" placeholder="A short description" className="p-4 rounded-xl bg-white shadow-xl font-medium text-gray-500" />
                 <div className="w-full">
-                    {/* <div className="relative flex flex-1"> */}
-                    {/* <div className="absolute flex-row flex gap-2 p-2 text-2xl mx-[74%] md:mx-[88%] lg:mx-[92%]">
-                        <button type="button" className="">
-                            <Upload type="image" setProgress={setProgress} setData={setImg}>
-                                📸
-                            </Upload>
-                        </button>
-                        <button type="button" className="">
-                            <Upload type="video" setProgress={setProgress} setData={setVideo}>
-                                🎥
-                            </Upload>
-                        </button>
-                    </div> */}
-                    {/* <ReactQuill
-                        value={value}
-                        onChange={setValue}
-                        modules={modules}
-                        formats={formats}
-                        theme="snow"
-                        readOnly={0 > progress && progress < 100}
-                        className="flex-1 w-full rounded-xl bg-white shadow-xl font-medium text-gray-500 text-justify"
-                    /> */}
                     <Editor
                         apiKey='ih2jrrv0v85b0hyexn6e0sxrh3bvsf4djnbwrbh4ki2ad4ol'
                         value={value}

@@ -23,7 +23,7 @@ const FeaturedPosts = () => {
             {/* first post - left section */}
             <div className="w-full lg:w-1/2 flex flex-col gap-4">
                 {/* image */}
-                {posts[0].img && <Image src={posts[0].img} className="rounded-3xl shadow-lg object-cover" w="895" />}
+                {posts[0].img && <Image src={posts[0].img} className="rounded-3xl shadow-lg object-cover" w="auto" />}
                 {/* details */}
                 <div className="flex items-center gap-4">
                     <h1 className="font-medium">01.&nbsp;<Link className="text-blue-800 font-medium" to={`/posts?author=${posts[0].user.username}`}>{posts[0].user?.username}</Link></h1>
@@ -60,7 +60,7 @@ const FeaturedPosts = () => {
                 {posts[2] && <div className="md:h-1/3 flex justify-between gap-4">
                     {/* image on */}
                     {posts[2].img && <div className="w-1/3 aspect-video">
-                        <Image src={posts[2].img} className="rounded-3xl object-cover w-full h-full" w="298" />
+                        <Image src={posts[2].img} className="rounded-3xl object-cover w-full h-full" />
                     </div>}
                     {/* details */}
                     <div className="w-2/3 flex flex-col">
