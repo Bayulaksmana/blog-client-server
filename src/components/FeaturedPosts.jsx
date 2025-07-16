@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
 
 const fetchPost = async () => {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL_BE}/posts?feature=true`);
+    const res = await axios.get(`${import.meta.env.VITE_API_URL_BE}/posts?featured=true&limit=4`);
     return res.data;
 };
 const FeaturedPosts = () => {
@@ -22,11 +22,11 @@ const FeaturedPosts = () => {
             {/* first post - left section */}
             <div className="w-full lg:w-1/2 flex flex-col gap-2">
                 {/* image */}
-                <div className="relative rounded-md">
+                <div className="relative rounded-md w-full h-96">
                     {posts[0].img && <Image src={posts[0].img} className="rounded-3xl shadow-lg object-cover w-full h-full" />}
                 </div>
                 {/* details */}
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex items-center gap-2 mt-4 lg:text-md ">
                     <h1 className="font-medium">01.&nbsp;&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[0].user.username}`}>{posts[0].user?.username}</Link></h1>
                     <span>on</span>
                     <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[0].category}`}>{posts[0].category}</Link>
@@ -42,7 +42,7 @@ const FeaturedPosts = () => {
                 {posts[1] && <div className="md:h-1/3 flex justify-between gap-4">
                     {/* image on */}
                     {posts[1].img && <div className="w-1/3 aspect-video lg:block hidden relative size-56">
-                        <Image src={posts[1].img} className="rounded-3xl object-cover h-full" />
+                        <Image src={posts[1].img} className="rounded-3xl object-cover h-full w-full" />
                     </div>}
                     {/* details */}
                     <div className="lg:w-2/3 w-full flex flex-col">
@@ -61,7 +61,7 @@ const FeaturedPosts = () => {
                 {posts[2] && <div className="md:h-1/3 flex justify-between gap-4">
                     {/* image on */}
                     {posts[2].img && <div className="w-1/3 aspect-video lg:block hidden relativ size-56">
-                        <Image src={posts[2].img} className="rounded-3xl object-cover h-full" />
+                        <Image src={posts[2].img} className="rounded-3xl object-cover h-full w-full" />
                     </div>}
                     {/* details */}
                     <div className="lg:w-2/3 w-full flex flex-col">
@@ -80,7 +80,7 @@ const FeaturedPosts = () => {
                 {posts[3] && <div className="md:h-1/3 flex justify-between gap-4">
                     {/* image on */}
                     {posts[3].img && <div className="w-1/3 aspect-video lg:block hidden relative size-56">
-                        <Image src={posts[3].img} className="rounded-3xl object-cover h-full" />
+                        <Image src={posts[3].img} className="rounded-3xl object-cover h-full w-full" />
                     </div>}
                     {/* details */}
                     <div className="lg:w-2/3 w-full flex flex-col">

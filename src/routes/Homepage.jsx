@@ -14,7 +14,7 @@ const Homepage = () => {
                 {/* titles */}
                 <div className="">
                     <h1 className="text-gray-800 text-xl text-justify md:text-left md:text-4xl lg:text-5xl font-bold tracking-wide">Keluarga Pelajar Mahasiswa Indonesia Bolaang Mongondow Raya (KPMIBM-R)</h1>
-                    <p className="mt-5 text-sm md:text-xl">Adagium masyarakat mongondow adalah spirit mehidupkan dan merawat persatuan ~ Mototompiaan, Mototabian, bo Mototanoban </p>
+                    <p className="mt-5 text-sm md:text-xl">Adagium masyarakat mongondow memuat spirit kolektif dan keluhuran budi ~ Mototompiaan, Mototabian, bo Mototanoban </p>
                 </div>
                 {/* Animation Button */}
                 <Link to="write" className="hidden md:flex relative">

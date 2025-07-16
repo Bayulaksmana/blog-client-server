@@ -98,7 +98,7 @@ const PostMenuAction = ({ post }) => {
     return (
         <div className=''>
             <h1 className="mt-4 mb-2 text-sm font-medium">Action</h1>
-            {isPending ? ("Loading...") : error ? ("Fetching data failed!") :
+            {isPending ? ("Loading...") : error ? ("You must be login!") :
                 (
                     <div className="flex items-center gap-2 py-2 text-sm cursor-pointer" onClick={handleSave}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30" height="30">
