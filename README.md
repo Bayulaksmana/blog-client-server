@@ -1,0 +1,5 @@
+# React + Vite
+
+- GIT CLONE
+- NPM INSTALL
+- NPM RUN DEV

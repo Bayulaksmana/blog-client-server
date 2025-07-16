@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    background-color: #e6e6ff;
+    width: 100vw;
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+}
+
+.animatedButton{
+    animation-duration: 20000ms;
+}
+
+.ql-container{
+    border: none !important;
+}
+.ql-toolbar{
+    border: none !important;
+}
+.ql-editor{
+    border: none !important;
+}
+
+/* .ql-tooltip.ql-hidden{
+    border: none !important;
+} */
+
+
+.chart-org .highcharts-point {
+  rx: 16px !important; /* Horizontal border-radius */
+  ry: 16px !important; /* Vertical border-radius */
+}
