@@ -3,6 +3,8 @@ import Image from "./Image"
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
+import { FcAlarmClock, FcManager, FcVoicePresentation } from "react-icons/fc";
+
 
 const fetchPost = async () => {
     const res = await axios.get(`${import.meta.env.VITE_API_URL_BE}/posts?featured=true&limit=4`);
@@ -27,10 +29,11 @@ const FeaturedPosts = () => {
                 </div>
                 {/* details */}
                 <div className="flex items-center gap-2 mt-4 lg:text-md ">
-                    <h1 className="font-medium">01.&nbsp;&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[0].user.username}`}>{posts[0].user?.username}</Link></h1>
+                    <h1 className="font-medium flex items-center">01.&nbsp;&nbsp;<FcManager />&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[0].user.username}`}>{posts[0].user?.username}</Link></h1>
                     <span>on</span>
                     <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[0].category}`}>{posts[0].category}</Link>
-                    <span className="text-gray-500">{format(posts[0].createdAt)}</span>
+                    <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[0].createdAt)}</span>
+                    <span className="text-gray-500 flex items-center"><FcVoicePresentation />&nbsp;{posts[0].visit}&nbsp;<span className="text-xs">visitor</span></span>
                 </div>
                 {/* title */}
                 <Link to={posts[0].slug} className="text-xl lg:text-3xl font-bold lg:font-bold">{posts[0].title}</Link>
@@ -50,7 +53,7 @@ const FeaturedPosts = () => {
                             <h1 className="font-medium">02.&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[1].user.username}`}>{posts[1].user?.username}</Link></h1>
                             <span>on</span>
                             <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[1].category}`}>{posts[1].category}</Link>
-                            <span className="text-gray-500">{format(posts[1].createdAt)}</span>
+                            <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[1].createdAt)}</span>
                         </div>
                         {/* title */}
                         <Link to={posts[1].slug} className="text-base sm:text-lg md:text-sm lg:text-lg font-semibold">{posts[1].title}</Link>
@@ -69,7 +72,7 @@ const FeaturedPosts = () => {
                             <h1 className="font-medium">03.&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[2].user.username}`}>{posts[2].user?.username}</Link></h1>
                             <span>on</span>
                             <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[2].category}`}>{posts[2].category}</Link>
-                            <span className="text-gray-500">{format(posts[2].createdAt)}</span>
+                            <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[2].createdAt)}</span>
                         </div>
                         {/* title */}
                         <Link to={posts[2].slug} className="text-base sm:text-lg md:text-sm lg:text-lg font-semibold">{posts[2].title}</Link>
@@ -88,7 +91,7 @@ const FeaturedPosts = () => {
                             <h1 className="font-medium">04.&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[3].user.username}`}>{posts[3].user?.username}</Link></h1>
                             <span>on</span>
                             <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[3].category}`}>{posts[3].category}</Link>
-                            <span className="text-gray-500">{format(posts[3].createdAt)}</span>
+                            <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[3].createdAt)}</span>
                         </div>
                         {/* title */}
                         <Link to={posts[3].slug} className="text-base sm:text-lg md:text-sm lg:text-lg font-semibold">{posts[3].title}</Link>

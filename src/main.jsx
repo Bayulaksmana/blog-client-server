@@ -14,6 +14,11 @@ import { QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 import { ToastContainer } from "react-toastify" 
 import 'react-toastify/dist/ReactToastify.css'
 import OrganizationPage from './routes/OrganizationPage';
+import AlumniPage from './routes/AlumniPage';
+import DatabasePage from './routes/DatabasePage';
+import GaleryPage from './routes/GaleryPage';
+import PendaftaranPage from './routes/PendaftaranPage';
+import EditPost from './routes/EditPost';
 
 
 const queryClient = new QueryClient()
@@ -53,6 +58,26 @@ const router = createBrowserRouter([
       {
         path: "/organization",
         element: <OrganizationPage />
+      },
+      {
+        path: "/alumni",
+        element: <AlumniPage />
+      },
+      {
+        path: "/database",
+        element: <DatabasePage />
+      },
+      {
+        path: "/galery",
+        element: <GaleryPage />
+      },
+      {
+        path: "/pendaftaran",
+        element: <PendaftaranPage />
+      },
+      {
+        path: "/edit/:id",
+        element: <EditPost />
       },
     ]
   }

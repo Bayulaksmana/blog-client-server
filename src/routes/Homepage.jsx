@@ -6,15 +6,15 @@ import Noted from "../components/Noted"
 
 const Homepage = () => {
     return (
-        <div className='mt-4 flex flex-col gap-4'>
+        <div className='flex flex-col gap-4'>
             {/* start section for components breadcrumb  */}
-            <Noted link="/write" title="Write" page="Essai & Articles"/>
+            <Noted link="/write" title="Write" page="Essai & Articles" />
             {/* start section for components introduction  */}
             <div className="flex items-center justify-between">
                 {/* titles */}
                 <div className="">
                     <h1 className="text-gray-800 text-xl text-justify md:text-left md:text-4xl lg:text-5xl font-bold tracking-wide">Keluarga Pelajar Mahasiswa Indonesia Bolaang Mongondow Raya (KPMIBM-R)</h1>
-                    <p className="mt-5 text-sm md:text-xl">Adagium masyarakat mongondow memuat spirit kolektif dan keluhuran budi ~ Mototompiaan, Mototabian, bo Mototanoban </p>
+                    <p className="mt-5 text-sm md:text-xl">Falsafah mongondow : keluhuran budi dan spirit kolektif  ~ Mototompiaan, Mototabian, bo Mototanoban </p>
                 </div>
                 {/* Animation Button */}
                 <Link to="write" className="hidden md:flex relative">
@@ -38,12 +38,12 @@ const Homepage = () => {
             {/* start section for components link categories  */}
             <MainCategories />
             {/* Section for components featured list  */}
-                <h1 className="my-4 text-2xl text-gray-600">Featured Post</h1>
+            <h1 className="my-4 text-2xl text-gray-600">Featured Post</h1>
             <FeaturedPosts />
             {/* Section for components post list  */}
             <div className="">
                 <h1 className="my-8 text-2xl text-gray-600">Recent Post</h1>
-                <PostList/>
+                <PostList />
             </div>
             {/* Section for components registered people  */}
             {/* Section for components message boot whatsapp */}

@@ -33,7 +33,7 @@ const Navbar = () => {
                 <div className={`font-medium gap-8 text-lg w-full h-full bg-[#e6e6ff] flex flex-col items-center justify-center absolute top-16 transition-all ease-in-out ${open ? "-right-0" : "-right-[100%]"}`}>
                     <Link to="/">Home</Link>
                     <Link to="/posts">Article</Link>
-                    <Link to="/">Activity</Link>
+                    <Link to="#">Activity</Link>
                     <Link to="/organization">Organization</Link>
                     <SignedOut>
                         <Link to="/login">
