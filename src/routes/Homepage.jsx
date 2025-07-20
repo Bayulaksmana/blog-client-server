@@ -3,6 +3,8 @@ import MainCategories from "../components/MainCategories"
 import FeaturedPosts from "../components/FeaturedPosts"
 import PostList from "../components/PostList"
 import Noted from "../components/Noted"
+import MainPicture from "../components/MainPicture"
+import ListUniversitas from "../components/ListUniversitas"
 
 const Homepage = () => {
     return (
@@ -25,24 +27,27 @@ const Homepage = () => {
                         className="text-lg tracking-widest animate-spin animatedButton"
                     >
                         <path id="circlePath" fill="none" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
-                        <text>
+                        <text className="font-myfont text-2xl tracking-widest">
                             <textPath href="#circlePath" startOffset="50%">Dega nion don •</textPath>
                             <textPath href="#circlePath" startOffset="0%">Write your story •</textPath>
                         </text>
                     </svg>
-                    <button className="absolute top-0 left-0 right-0 bottom-0 m-auto w-20 h-20 bg-emerald-600 rounded-full flex items-center justify-center">
+                    <button type="button" className="absolute top-0 left-0 right-0 bottom-0 m-auto w-20 h-20 bg-emerald-600 rounded-full flex items-center justify-center">
                         <img src="/logo/logo-utama-besar.png" alt="Logo create cerita" />
                     </button>
                 </Link>
             </div>
             {/* start section for components link categories  */}
             <MainCategories />
+            <h1 className="font-myfont my-2 text-2xl text-gray-600"></h1>
+            <MainPicture />
             {/* Section for components featured list  */}
-            <h1 className="my-4 text-2xl text-gray-600">Featured Post</h1>
+            <h1 className="font-myfont my-4 text-2xl text-gray-600">Featured Post</h1>
             <FeaturedPosts />
             {/* Section for components post list  */}
+            <ListUniversitas />
             <div className="">
-                <h1 className="my-8 text-2xl text-gray-600">Recent Post</h1>
+                <h1 className="font-myfont my-4 text-2xl text-gray-600">Recent Post</h1>
                 <PostList />
             </div>
             {/* Section for components registered people  */}

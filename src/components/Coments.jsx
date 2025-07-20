@@ -46,7 +46,7 @@ export const Comments = ({ postId }) => {
     return (
         <div className="flex gap-6 justify-beetwen">
             <div className='flex flex-col gap-8 w-full lg:w-3/5 mb-6'>
-                <h1 className="text-xl text-gray-500 underline">Comments</h1>
+                <h1 className="font-myfont text-3xl text-gray-500 underline uppercase">Comments</h1>
                 <form onSubmit={handleSubmit} className="flex justify-between items-center gap-2 w-full">
                     <textarea name="desc" placeholder="Write a comments..." className="w-full p-4 rounded-xl" />
                     <button className="bg-emerald-700 hover:bg-emerald-500 px-4 py-3 text-white rounded-2xl font-medium">
