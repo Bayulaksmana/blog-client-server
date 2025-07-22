@@ -111,7 +111,7 @@ header {
 .carousel {
     /* margin-top: 5%; */
     height: 550px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
 }
 

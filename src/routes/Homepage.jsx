@@ -15,7 +15,7 @@ const Homepage = () => {
             <div className="flex items-center justify-between">
                 {/* titles */}
                 <div className="">
-                    <h1 className="text-gray-800 text-xl text-justify md:text-left md:text-4xl lg:text-5xl font-bold tracking-wide">Keluarga Pelajar Mahasiswa Indonesia Bolaang Mongondow Raya (KPMIBM-R)</h1>
+                    <h1 className="text-gray-800 text-lg sm:text-justify md:text-left md:text-4xl lg:text-5xl font-bold tracking-wide">Keluarga Pelajar Mahasiswa Indonesia Bolaang Mongondow Raya (KPMIBM-R)</h1>
                     <p className="mt-5 text-sm md:text-xl">Falsafah mongondow : keluhuran budi dan spirit kolektif  ~ Mototompiaan, Mototabian, bo Mototanoban </p>
                 </div>
                 {/* Animation Button */}

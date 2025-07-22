@@ -60,7 +60,7 @@ const Write = () => {
     }
     return (
         <div className='relative h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex flex-col gap-2 mt-4'>
-            <Noted link="/" title="Home" page="Created" />
+            <Noted link="/" title="Home" page="Created Your Best Story" />
             <h1 className="text-xl font-medium text-center text-gray-500 mt-4">Create a New Post</h1>
             <form onSubmit={handleSubmit} action="" className="flex flex-col gap-3 flex-1 mb-4">
                 <div className="flex gap-2">
