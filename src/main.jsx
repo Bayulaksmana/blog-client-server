@@ -19,6 +19,7 @@ import DatabasePage from './routes/DatabasePage';
 import GaleryPage from './routes/GaleryPage';
 import PendaftaranPage from './routes/PendaftaranPage';
 import EditPost from './routes/EditPost';
+import SettingsPage from './routes/SettingsPage';
 
 
 const queryClient = new QueryClient()
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/edit/:id",
         element: <EditPost />
+      },
+      {
+        path: "/settings",
+        element: <SettingsPage />
       },
     ]
   }

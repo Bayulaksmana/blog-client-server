@@ -39,15 +39,15 @@ const Homepage = () => {
             </div>
             {/* start section for components link categories  */}
             <MainCategories />
-            <h1 className="font-myfont my-2 text-2xl text-gray-600"></h1>
+            {/* start section for components main pictures  */}
             <MainPicture />
-            {/* Section for components featured list  */}
-            <h1 className="font-myfont my-4 text-2xl text-gray-600">Featured Post</h1>
+            <h1 className="font-myfont my-8 text-gray-600 text-4xl uppercase">Featured Post</h1>
             <FeaturedPosts />
-            {/* Section for components post list  */}
+            {/* Section for components featured list  */}
             <ListUniversitas />
+            {/* Section for components post list  */}
             <div className="">
-                <h1 className="font-myfont my-4 text-2xl text-gray-600">Recent Post</h1>
+                <h1 className="font-myfont my-8 text-4xl text-gray-600 uppercase">Recent Post</h1>
                 <PostList />
             </div>
             {/* Section for components registered people  */}

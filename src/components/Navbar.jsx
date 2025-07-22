@@ -2,10 +2,11 @@ import { useState } from "react"
 import { Link } from "react-router"
 import Image from "./Image"
 import { useEffect } from "react"
-import { SignedIn, SignedOut, useAuth, UserButton } from "@clerk/clerk-react"
+import { SignedIn, SignedOut, useAuth, UserButton, useUser } from "@clerk/clerk-react"
 
 
 const Navbar = () => {
+    const { user } = useUser()
     const [open, setOpen] = useState(false);
 
     const { getToken } = useAuth();
@@ -14,7 +15,7 @@ const Navbar = () => {
         getToken()
         //.then(token => console.log(token))
     });
-
+    const isAdmin = user?.publicMetadata?.role === "admin" || false
     return (
         <div className='w-full h-16 md:h-20 flex items-center justify-between'>
             {/* start section logo */}
@@ -53,6 +54,7 @@ const Navbar = () => {
                 <Link to="/posts">Article</Link>
                 <Link to="/">Activity</Link>
                 <Link to="/organization">Organization</Link>
+                {isAdmin && <Link to="/settings">Settings</Link>}
                 <SignedOut>
                     <Link to="/login">
                         <button className="py-1.5 px-3 rounded-3xl bg-emerald-600 text-white">🔐</button>
