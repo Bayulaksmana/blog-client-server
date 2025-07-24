@@ -435,7 +435,7 @@ header {
     pointer-events: auto;
 }
 
-.carousel.showDetail .list .item:nth-child(2) .detail .title {
+/* .carousel.showDetail .list .item:nth-child(2) .detail .title {
     font-size: 4em;
 }
 
@@ -445,7 +445,7 @@ header {
     width: 100%;
     border-top: 1px solid #5553;
     margin-top: 20px;
-}
+} */
 
 .carousel.showDetail .list .item:nth-child(2) .detail .specifications div {
     width: 90px;

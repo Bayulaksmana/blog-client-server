@@ -3,6 +3,8 @@ import { FcConferenceCall } from "react-icons/fc";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Image from "./Image";
+import { Link } from "react-router"
+
 
 
 const fetchPosts = async () => {
@@ -52,13 +54,16 @@ const MainPicture = () => {
             prevButton.removeEventListener("click", handlePrev);
         };
     }, []);
+
     const { isPending, error, data } = useQuery({
         queryKey: ["daerahs"],
         queryFn: () => fetchPosts()
     })
+
     if (isPending) return "loading..."
     if (error) return "Otorisasi Server..." + error.message
     if (!data) return "Data Tidak Tersedia..."
+
     return (
         <div className={`carousel ${showDetail ? "showDetail" : ""} rounded-3xl`}>
             <div className="list" ref={listRef}>
@@ -71,19 +76,21 @@ const MainPicture = () => {
                             <div className="desc text-justify">{item.description}</div>
                             <button onClick={() => setShowDetail(true)} className="seeMore px-1 py-1 rounded-md items-center bg-emerald-400">see more &#8599;</button>
                         </div>
-                        <div className="detail">
-                            <div className="title">{item.title}</div>
+                        <div className="detail flex gap-2">
+                            <div className="title uppercase font-semibold text-4xl mb-6 ">{item.title}</div>
                             <div className="desc">{item.description}</div>
-                            <div className="specifications">
-                                <div><p>Used Time</p><p>6 hours</p></div>
-                                <div><p>Charging port</p><p>Type-C</p></div>
-                                <div><p>Compatible</p><p>Android</p></div>
+                            <div className="specifications flex justify-between border-t-2 border-black mt-6">
+                                <div><p>Kampus</p><p>UNPAD</p></div>
+                                <div><p>Mahasiswa</p><p>3 Person</p></div>
+                                <div><p>Alumni</p><p>3 Person</p></div>
                                 <div><p>Bluetooth</p><p>5.3</p></div>
                                 <div><p>Controlled</p><p>Touch</p></div>
                             </div>
-                            <div className="checkout">
-                                <button>ADD TO CART</button>
-                                <button>CHECKOUT</button>
+                            <div className="checkout mt-6">
+                                <a href={item.website} target="_blank" rel="noopener noreferrer">
+                                    <button>GO TO WEBSITE</button>
+                                </a>
+                                <button>SEND STORY</button>
                             </div>
                         </div>
                     </div>
