@@ -148,7 +148,6 @@ const Settings = () => {
                                 />
                             )}
                         </div>
-
                         <div className="w-full gap-2 flex flex-wrap justify-between items-center">
                             <textarea
                                 name="description"
@@ -172,9 +171,6 @@ const Settings = () => {
                             {!isEditing && (
                                 <EditCarousel onEdit={() => loadEditData(0)} />
                             )}
-
-                            {/* Next & Prev Buttons */}
-
                             {/* Submit / Cancel Button */}
                             {isEditing && (
                                 <div className="flex gap-2">
@@ -186,7 +182,6 @@ const Settings = () => {
                                         <svg className="text-gray-800 text-xs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="    " fill="none" viewBox="0 0 24 24">
                                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m15 19-7-7 7-7" />
                                         </svg>
-
                                     </button>
                                     <button
                                         type="button"
@@ -235,8 +230,17 @@ const Settings = () => {
                                     disabled={mutation.isPending && (progress < 0 || progress >= 100)}
                                     className="text-grey-800 bg-emerald-400 hover:bg-emerald-500 text-xs p-2 rounded-xl w-max disabled:bg-emerald-500 disabled:cursor-not-allowed flex"
                                 >
-                                    {mutation.isPending ? "Loading..." : "Post"}{" "}
-                                    {progress + "%"}
+                                    {mutation.isPending ? "Loading..." :
+                                        <div className="relative group">
+                                            <svg className="w-5 h-5 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2M12 4v12m0-12 4 4m-4-4L8 8" />
+                                            </svg>
+                                            <span className="absolute bottom-full left-1/2 -translate-x-1/2 px-2 py-2 mb-3 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition">
+                                                Post
+                                            </span>
+                                        </div>
+                                    }
+                                    {/* {" " + progress + "%"} */}
                                 </button>
                             )}
                         </div>
@@ -249,13 +253,19 @@ const Settings = () => {
 
 const EditCarousel = ({ onEdit }) => {
     return (
-        <div>
+        <div className="relative group">
             <button
+                title="Edit"
                 onClick={onEdit}
                 className="text-gray-800 bg-orange-300 hover:bg-orange-400 text-xs p-2 rounded-xl flex"
             >
-                Edit
+                <svg className="w-5 h-5 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                </svg>
             </button>
+            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition">
+                Edit
+            </span>
         </div>
     );
 };

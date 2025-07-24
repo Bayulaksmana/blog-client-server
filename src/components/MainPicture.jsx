@@ -3,7 +3,6 @@ import { FcConferenceCall } from "react-icons/fc";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Image from "./Image";
-import { Link } from "react-router"
 
 
 
@@ -83,8 +82,8 @@ const MainPicture = () => {
                                 <div><p>Kampus</p><p>UNPAD</p></div>
                                 <div><p>Mahasiswa</p><p>3 Person</p></div>
                                 <div><p>Alumni</p><p>3 Person</p></div>
-                                <div><p>Bluetooth</p><p>5.3</p></div>
-                                <div><p>Controlled</p><p>Touch</p></div>
+                                <div><p>Laki-Laki</p><p>-</p></div>
+                                <div><p>Perempuan</p><p>-</p></div>
                             </div>
                             <div className="checkout mt-6">
                                 <a href={item.website} target="_blank" rel="noopener noreferrer">
