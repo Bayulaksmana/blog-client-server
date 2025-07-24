@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { useState, useEffect, useRef } from "react";
 import Upload from "../Upload";
 import Image from "../Image";
-import { Trash2 } from "lucide-react";
 
 
 const CarouselForm = () => {
