@@ -87,7 +87,7 @@ const Write = () => {
                     name="title"
                     type="text"
                     placeholder="Enter Your Great Title"
-                    className="w-max lg:w-full text-2xl md:text-3xl font-semibold bg-transparent outline-none"
+                    className="w-max lg:w-full text-2xl md:text-3xl font-semibold bg-transparent focus:outline-none border-none"
                 />
                 <div className="flex items-center gap-4 ">
                     <label className="text-sm text-gray-500" htmlFor="">Choose a category:</label>

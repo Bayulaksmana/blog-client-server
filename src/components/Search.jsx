@@ -27,7 +27,7 @@ const Search = () => {
                 <circle cx="10.5" cy="10.5" r="7.5" />
                 <line x1="16.5" y1="16.5" x2="22" y2="22" />
             </svg>
-            <input type="text" placeholder="search a post..." className="bg-transparent" onKeyDown={handleKeyPress} />
+            <input type="text" placeholder="search a post..." className="bg-transparent focus:outline-none border-none" onKeyDown={handleKeyPress} />
         </div>
     )
 }
