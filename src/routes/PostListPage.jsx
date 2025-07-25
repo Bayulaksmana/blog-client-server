@@ -12,15 +12,15 @@ const PostListPage = () => {
             <button onClick={() => setOpen((prev) => !prev)} className="bg-emerald-600 sm:hidden text-sm px-4 py-2 text-white rounded-xl mb-6">
                 {open ? "close" : "Filter or Search"}
             </button>
-            <div className="flex flex-col gap-8 sm:flex-row">
+            <div className="flex flex-col gap-8 md:flex-row">
                 {/* post by category */}
+                <div className={`${open ? "block " : "hidden"} sm:block`}>
+                    <SideMenu />
+                </div>
                 <div className="w-full">
                     <PostList />
                 </div>
                 {/* filter category */}
-                <div className={`${open ? "block" : "hidden"} sm:block`}>
-                    <SideMenu />
-                </div>
             </div>
         </div>
     )

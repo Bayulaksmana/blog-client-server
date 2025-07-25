@@ -13,13 +13,13 @@ export const PostListItem = ({ post }) => {
             {/* details */}
             <div className="flex flex-col gap-2 justify-between xl:w-2/3">
                 <Link to={`/${post.slug}`} className="text-3xl md:text-4xl font-semibold">{post.title}</Link>
-                <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
-                    <span className="">Created by.</span>
+                <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm justify-between sm:justify-start">
+                    <span className="">Author :</span>
                     <Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${post.user.username}`}>{post.user?.username}</Link>
                     <span className="">on</span>
                     <Link className="text-blue-800 font-medium uppercase" to={`/posts?cat=${post.category}`}>{post.category}</Link>
-                    <div className="hidden sm:block">
                         <span className="flex items-center gap-2"><FcAlarmClock />{format(post.createdAt)}</span>
+                    <div className="hidden sm:block">
                         <span className="text-gray-500 flex items-center"><FcVoicePresentation />&nbsp;{post.visit}&nbsp;<span className="text-xs">visitor</span></span>
                     </div>
                 </div>

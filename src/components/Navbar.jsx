@@ -12,7 +12,6 @@ const Navbar = () => {
 
     useEffect(() => {
         getToken()
-        //.then(token => console.log(token))
     });
 
     const navLinks = [
@@ -24,7 +23,7 @@ const Navbar = () => {
     const isAdmin = user?.publicMetadata?.role === "admin" || false
     const isActive = (path) => location.pathname === path;
     return (
-        <div className='w-full py-4 flex items-center justify-between dark:bg-gray-900 relative z-50'>
+        <div className=' py-4 flex items-center justify-between dark:bg-gray-900 relative z-50'>
             {/* start section logo */}
             <Link to="/" className="transition-transform hover:scale-105">
                 <Image src="logo/logo.svg" alt={'logo svg'} w="32" h="32" className={'w-full h-16 mt-1 object-contain'} />
@@ -38,7 +37,7 @@ const Navbar = () => {
                     {open ? "x" : "≡"}
                 </div>
                 {/* mobile link list */}
-                <div className={`gap-8 text-lg w-full left-0 top-full font-semibold h-screen bg-[#e6e6ff] flex flex-col items-center justify-center absolute transition-all ease-in-out ${open ? "show" : "hide"}`}>
+                <div className={`gap-8 text-lg w-full h-screen left-0 top-full font-semibold bg-emerald-300 flex flex-col items-center justify-center absolute transition-all ease-in-out ${open ? "show" : "hide"}`}>
                     {navLinks.map((link) => (
                         <Link
                             key={link.to}

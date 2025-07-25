@@ -29,12 +29,12 @@ const FeaturedPosts = () => {
                 </div>
                 {/* details */}
                 <div className="flex items-center gap-2 mt-4 lg:text-md ">
-                    <h1 className="font-medium flex items-center">01.&nbsp;&nbsp;<FcManager />&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[0].user.username}`}>{posts[0].user?.username}</Link></h1>
+                    <h1 className="font-medium flex items-center">01.&nbsp;&nbsp;<FcManager className="w-3.5" />&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[0].user.username}`}>{posts[0].user?.username}</Link></h1>
                     <span>on</span>
                     <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[0].category}`}>{posts[0].category}</Link>
+                    <span className="text-gray-500 flex items-center"><FcAlarmClock className="w-3.5" />&nbsp;{format(posts[0].createdAt)}</span>
                     <div className="hidden sm:block">
-                        <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[0].createdAt)}</span>
-                        <span className="text-gray-500 flex items-center"><FcVoicePresentation />&nbsp;{posts[0].visit}&nbsp;<span className="text-xs">visitor</span></span>
+                        <span className="text-gray-500 flex items-center"><FcVoicePresentation className="h-5 w-5" />&nbsp;{posts[0].visit}&nbsp;<span className="text-xs">visitor</span></span>
                     </div>
                 </div>
                 {/* title */}
@@ -51,11 +51,11 @@ const FeaturedPosts = () => {
                     </div>}
                     {/* details */}
                     <div className="lg:w-2/3 w-full flex flex-col">
-                        <div className="flex items-center gap-2 text-sm sm:text-xs md:text-[9px] lg:text-sm 2xl:text-md lg:mb-2">
+                        <div className="flex items-center gap-2 text-sm sm:text-xs md:text-[9px] lg:text-sm 2xl:text-md lg:mb-2 justify-between">
                             <h1 className="font-medium">02.&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[1].user.username}`}>{posts[1].user?.username}</Link></h1>
                             <span>on</span>
                             <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[1].category}`}>{posts[1].category}</Link>
-                            {/* <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[1].createdAt)}</span> */}
+                            <span className="text-gray-500 flex items-center"><FcAlarmClock className="w-3" />&nbsp;{format(posts[1].createdAt)}</span>
                         </div>
                         {/* title */}
                         <Link to={posts[1].slug} className="text-base sm:text-lg md:text-sm lg:text-lg font-semibold">{posts[1].title}</Link>
@@ -63,18 +63,18 @@ const FeaturedPosts = () => {
                     </div>
                 </div>}
                 {/* image small two */}
-                {posts[2] && <div className="md:h-1/3 flex justify-between gap-4">
+                {posts[2] && <div className="md:h-1/3 flex justify-between gap-4 mt-4">
                     {/* image on */}
                     {posts[2].img && <div className="w-1/3 aspect-video lg:block hidden relativ size-56">
                         <Image src={posts[2].img} className="rounded-3xl object-cover h-full w-full" />
                     </div>}
                     {/* details */}
                     <div className="lg:w-2/3 w-full flex flex-col">
-                        <div className="flex items-center gap-2 text-sm sm:text-xs md:text-[9px] lg:text-sm 2xl:text-md lg:mb-2">
+                        <div className="flex items-center gap-2 text-sm sm:text-xs md:text-[9px] lg:text-sm 2xl:text-md lg:mb-2 justify-between">
                             <h1 className="font-medium">03.&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[2].user.username}`}>{posts[2].user?.username}</Link></h1>
                             <span>on</span>
                             <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[2].category}`}>{posts[2].category}</Link>
-                            {/* <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[2].createdAt)}</span> */}
+                            <span className="text-gray-500 flex items-center"><FcAlarmClock className="w-3" />&nbsp;{format(posts[2].createdAt)}</span>
                         </div>
                         {/* title */}
                         <Link to={posts[2].slug} className="text-base sm:text-lg md:text-sm lg:text-lg font-semibold">{posts[2].title}</Link>
@@ -89,11 +89,11 @@ const FeaturedPosts = () => {
                     </div>}
                     {/* details */}
                     <div className="lg:w-2/3 w-full flex flex-col">
-                        <div className="flex items-center gap-2 text-sm sm:text-xs md:text-[9px] lg:text-sm 2xl:text-md lg:mb-2">
+                        <div className="flex items-center gap-2 text-sm sm:text-xs md:text-[9px] lg:text-sm 2xl:text-md lg:mb-2 justify-between">
                             <h1 className="font-medium">04.&nbsp;<Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${posts[3].user.username}`}>{posts[3].user?.username}</Link></h1>
                             <span>on</span>
                             <Link className="text-blue-800 uppercase" to={`/posts?cat=${posts[3].category}`}>{posts[3].category}</Link>
-                            {/* <span className="text-gray-500 flex items-center"><FcAlarmClock />&nbsp;{format(posts[3].createdAt)}</span> */}
+                            <span className="text-gray-500 flex items-center"><FcAlarmClock className="w-3" />&nbsp;{format(posts[3].createdAt)}</span>
                         </div>
                         {/* title */}
                         <Link to={posts[3].slug} className="text-base sm:text-lg md:text-sm lg:text-lg font-semibold">{posts[3].title}</Link>
