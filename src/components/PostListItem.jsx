@@ -18,8 +18,10 @@ export const PostListItem = ({ post }) => {
                     <Link className="text-blue-800 font-medium uppercase" to={`/posts?author=${post.user.username}`}>{post.user?.username}</Link>
                     <span className="">on</span>
                     <Link className="text-blue-800 font-medium uppercase" to={`/posts?cat=${post.category}`}>{post.category}</Link>
-                    <span className="flex items-center gap-2"><FcAlarmClock />{format(post.createdAt)}</span>
-                    <span className="text-gray-500 flex items-center"><FcVoicePresentation />&nbsp;{post.visit}&nbsp;<span className="text-xs">visitor</span></span>
+                    <div className="hidden sm:block">
+                        <span className="flex items-center gap-2"><FcAlarmClock />{format(post.createdAt)}</span>
+                        <span className="text-gray-500 flex items-center"><FcVoicePresentation />&nbsp;{post.visit}&nbsp;<span className="text-xs">visitor</span></span>
+                    </div>
                 </div>
                 <p className="text-justify">{post.desc}</p>
                 <Link to={`/${post.slug}`} className="text-blue-800 underline">Read more</Link>

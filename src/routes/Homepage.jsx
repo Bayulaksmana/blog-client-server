@@ -7,6 +7,7 @@ import MainPicture from "../components/MainPicture"
 import ListUniversitas from "../components/ListUniversitas"
 
 const Homepage = () => {
+
     return (
         <div className='flex flex-col gap-4'>
             {/* start section for components breadcrumb  */}
@@ -15,8 +16,9 @@ const Homepage = () => {
             <div className="flex items-center justify-between">
                 {/* titles */}
                 <div className="">
-                    <h1 className="text-gray-800 text-lg sm:text-justify md:text-left md:text-4xl lg:text-5xl font-bold tracking-wide">Keluarga Pelajar Mahasiswa Indonesia Bolaang Mongondow Raya (KPMIBM-R)</h1>
-                    <p className="mt-5 text-sm md:text-xl">Falsafah mongondow : keluhuran budi dan spirit kolektif  ~ Mototompiaan, Mototabian, bo Mototanoban </p>
+                    <h1 className="text-gray-800 text-2xl text-center sm:text-justify md:text-left md:text-4xl lg:text-5xl font-bold tracking-wide">Keluarga Pelajar Mahasiswa Indonesia Bolaang Mongondow Raya (KPMIBM-R)</h1>
+                    <p className="mt-5 text-sm md:text-xl text-center mb-6">Adagium yang membentuk manusia Mongondow dari segi individualitas serta
+                        spirit kolektif  ~ <span className="italic font-semibold">Mototompiaan, Mototabian, bo Mototanoban</span> </p>
                 </div>
                 {/* Animation Button */}
                 <Link to="write" className="hidden md:flex relative">

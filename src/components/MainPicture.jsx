@@ -39,7 +39,7 @@ const MainPicture = () => {
         unAcceptClick = setTimeout(() => {
             nextButton.style.pointerEvent = "auto"
             prevButton.style.pointerEvent = "auto"
-        }, 2000)
+        }, 10000)
         const handleNext = () => showSlider("next")
         const handlePrev = () => showSlider("prev")
         const interval = setInterval(() => {
@@ -75,15 +75,15 @@ const MainPicture = () => {
                             <div className="desc text-justify">{item.description}</div>
                             <button onClick={() => setShowDetail(true)} className="seeMore px-1 py-1 rounded-md items-center bg-emerald-400">see more &#8599;</button>
                         </div>
-                        <div className="detail flex gap-2">
-                            <div className="title uppercase font-semibold text-4xl mb-6 ">{item.title}</div>
-                            <div className="desc">{item.description}</div>
+                        <div className="detail">
+                            <div className="title uppercase font-semibold text-4xl mb-6 hidden sm:block">{item.title}</div>
+                            <div className="desc text-justify mt-10">{item.description}</div>
                             <div className="specifications flex justify-between border-t-2 border-black mt-6">
                                 <div><p>Kampus</p><p>UNPAD</p></div>
                                 <div><p>Mahasiswa</p><p>3 Person</p></div>
                                 <div><p>Alumni</p><p>3 Person</p></div>
-                                <div><p>Laki-Laki</p><p>-</p></div>
-                                <div><p>Perempuan</p><p>-</p></div>
+                                <div><p>Beasiswa</p><p>-</p></div>
+                                <div><p>Asrama</p><p>-</p></div>
                             </div>
                             <div className="checkout mt-6">
                                 <a href={item.website} target="_blank" rel="noopener noreferrer">

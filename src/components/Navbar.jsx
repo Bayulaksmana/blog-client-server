@@ -38,14 +38,21 @@ const Navbar = () => {
                     {open ? "x" : "≡"}
                 </div>
                 {/* mobile link list */}
-                <div className={`font-medium gap-8 text-lg w-full h-full bg-[#e6e6ff] flex flex-col items-center justify-center absolute top-16 transition-all ease-in-out ${open ? "-right-0" : "-right-[100%]"}`}>
-                    <Link to="/">Home</Link>
-                    <Link to="/posts">Article</Link>
-                    <Link to="#">Activity</Link>
-                    <Link to="/organization">Organization</Link>
+                <div className={`gap-8 text-lg w-full left-0 top-full font-semibold h-screen bg-[#e6e6ff] flex flex-col items-center justify-center absolute transition-all ease-in-out ${open ? "show" : "hide"}`}>
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.to}
+                            to={link.to}
+                            className={`hover:text-emerald-600 transition ${isActive(link.to) ? "text-emerald-600 font-semibold" : ""}`}
+                            onClick={() => setOpen(false)}
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                    {isAdmin && <Link to="/settings" onClick={() => setOpen(false)} className="hover:text-orange-400 transition">Settings</Link>}
                     <SignedOut>
                         <Link to="/login">
-                            <button className="py-1.5 px-3 rounded-3xl bg-emerald-600 text-white">Login🔐</button>
+                            <button onClick={() => setOpen(false)} className="py-1.5 px-3 rounded-3xl bg-emerald-600 text-white hover:bg-emerald-700 transition">🔐</button>
                         </Link>
                     </SignedOut>
                     <SignedIn>
@@ -61,8 +68,7 @@ const Navbar = () => {
                     <Link
                         key={link.to}
                         to={link.to}
-                        className={`hover:text-emerald-600 transition ${isActive(link.to) ? "text-emerald-600 font-semibold" : ""
-                            }`}
+                        className={`hover:text-emerald-600 transition ${isActive(link.to) ? "text-emerald-600 font-semibold" : ""}`}
                     >
                         {link.label}
                     </Link>
