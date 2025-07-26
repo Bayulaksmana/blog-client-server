@@ -20,6 +20,7 @@ import GaleryPage from './routes/GaleryPage';
 import PendaftaranPage from './routes/PendaftaranPage';
 import EditPost from './routes/EditPost';
 import SettingsPage from './routes/SettingsPage';
+import UserAuthForm from './Pages/userAuthForm.page';
 
 
 const queryClient = new QueryClient()
@@ -84,6 +85,14 @@ const router = createBrowserRouter([
         path: "/settings",
         element: <SettingsPage />
       },
+      {
+        path: "signin",
+        element: <UserAuthForm type="sign-in" />
+      },
+      {
+        path: "signup",
+        element: <UserAuthForm type="sign-up" />
+      }
     ]
   }
 ]);

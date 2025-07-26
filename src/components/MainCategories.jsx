@@ -7,7 +7,7 @@ const MainCategories = () => {
             {/* list link */}
             <div className="flex-1 flex items-center justify-between flex-wrap">
                 <Link to="/" className="bg-emerald-600 text-white rounded-full px-4 py-2">Main Post</Link>
-                <Link to="/pendaftaran" className="hover:bg-emerald-200 rounded-full px-4 py-2">Register</Link>
+                <Link to="signin" className="hover:bg-emerald-200 rounded-full px-4 py-2">Register</Link>
                 <Link to="/database" className="hover:bg-emerald-200 rounded-full px-4 py-2">Database</Link>
                 <Link to="/galery" className="hover:bg-emerald-200 rounded-full px-4 py-2">Galery</Link>
                 <Link to="/alumni" className="hover:bg-emerald-200 rounded-full px-4 py-2">Alumni</Link>

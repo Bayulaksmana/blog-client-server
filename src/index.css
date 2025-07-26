@@ -746,3 +746,24 @@ header {
         @apply bg-background text-foreground;
     }
 }
+
+/* Style Buat Page Register */
+
+.h-cover {
+    @apply min-h-[calc(100vh-80px)];
+}
+
+.input-box {
+    @apply w-[100%] rounded-lg p-2.5 pl-12 text-sm font-medium tracking-widest text-gray-600 focus:bg-white  focus:outline-none;
+}
+
+.input-icon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 opacity-70;
+}
+
+i {
+    @apply mt-0.5;
+}
+.btn-dark {
+    @apply flex mt-6 justify-self-center whitespace-nowrap bg-black text-white rounded-full py-2.5 px-4 text-sm capitalize hover:bg-opacity-80;
+}
