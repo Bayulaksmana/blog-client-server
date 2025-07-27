@@ -754,7 +754,7 @@ header {
 }
 
 .input-box {
-    @apply w-[100%] rounded-lg p-2.5 pl-12 text-sm font-medium tracking-widest text-gray-600 focus:bg-white  focus:outline-none;
+    @apply w-[100%] rounded-lg p-2.5 pl-12 text-xs font-medium tracking-widest text-gray-600 focus:bg-white  focus:outline-none;
 }
 
 .input-icon {
