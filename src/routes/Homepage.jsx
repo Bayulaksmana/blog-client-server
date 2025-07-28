@@ -5,10 +5,11 @@ import PostList from "../components/PostList"
 import Noted from "../components/Noted"
 import MainPicture from "../components/MainPicture"
 import ListUniversitas from "../components/ListUniversitas"
-
+import AnimationWrapper from "@/components/common/page-animation"
 const Homepage = () => {
 
     return (
+        <AnimationWrapper>
         <div className='flex flex-col gap-4'>
             {/* start section for components breadcrumb  */}
             <Noted link="/write" title="Write" page="Essai & Articles" />
@@ -56,6 +57,7 @@ const Homepage = () => {
             {/* Section for components message boot whatsapp */}
             {/* Section for components footer and copyright */}
         </div>
+        </AnimationWrapper>
     )
 }
 

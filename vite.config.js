@@ -17,5 +17,5 @@ export default defineConfig({
       'highcharts/modules/exporting',
       'tinymce/tinymce',
     ]
-  }
+  },
 });

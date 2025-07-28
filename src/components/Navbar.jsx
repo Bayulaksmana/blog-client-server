@@ -37,13 +37,13 @@ const Navbar = () => {
             {/* end section logo */}
 
             {/* start section navigation mobile */}
-            <div className="sm:hidden flex">
+            <div className="sm:hidden flex ">
                 {/* mobile button */}
                 <div className="cursor-pointer text-4xl font-medium" onClick={() => setOpen((prev) => !prev)}>
                     {open ? "x" : "≡"}
                 </div>
                 {/* mobile link list */}
-                <div className={`gap-8 text-lg w-full h-screen left-0 top-full font-semibold bg-emerald-300 flex flex-col items-center justify-center absolute transition-all ease-in-out ${open ? "show" : "hide"}`}>
+                <div className={`gap-8 text-lg w-full h-screen left-0 top-full font-semibold bg-[#E6E6FF]  flex flex-col items-center justify-center absolute transition-all ease-in-out ${open ? "show" : "hide"}`}>
                     {navLinks.map((link) => (
                         <Link
                             key={link.to}
@@ -69,7 +69,7 @@ const Navbar = () => {
             {/* end section navigation mobile */}
 
             {/* start section navigation menu desktop */}
-            <div className="hidden sm:flex items-center gap-4 md:gap-8 lg:gap-12 font-medium text-gray-800 ">
+            <div className="hidden sm:flex items-center gap-4 md:gap-4 lg:gap-12 font-medium text-gray-800 ">
                 {navLinks.map((link) => (
                     <Link
                         key={link.to}
@@ -84,7 +84,7 @@ const Navbar = () => {
                     <Link to="/login">
                         <button className="py-1.5 px-3 rounded-3xl bg-emerald-600 text-white text-xs hover:bg-emerald-700 transition">🔐</button>
                     </Link>
-                    <button onClick={handleClick} className="py-1.5 px-2 -mx-10 rounded-xl text-xs bg-slate-950 text-white hover:bg-opacity-80 transition" >{open ? "Sign-in" : "Sign-Up"}</button>
+                    <button onClick={handleClick} className="py-1.5 px-2 rounded-xl text-xs bg-slate-950 text-white hover:bg-opacity-80 transition" >{open ? "Sign-in" : "Sign-Up"}</button>
                 </SignedOut>
                 <SignedIn>
                     <UserButton />

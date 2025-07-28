@@ -22,6 +22,7 @@ const Write = () => {
     const navigate = useNavigate()
     const { getToken } = useAuth()
     const maxDescription = 400;
+    
     const mutation = useMutation({
         mutationFn: async (newPost) => {
             const token = await getToken()

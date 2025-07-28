@@ -12,9 +12,12 @@ const ListUniversitas = () => {
         queryKey: ["universitas"],
         queryFn: () => fetchPosts()
     })
+
     if (isPending) return "loading..."
     if (error) return "Otorisasi Server..." + error.message
     if (!data) return "Data Tidak Tersedia..."
+
+    console.log(data)
     return (
         <div className="px-4 py-4 mt-8 hidden sm:block">
             <h1 className="font-myfont font-medium text-center mb-8 text-2xl uppercase">
