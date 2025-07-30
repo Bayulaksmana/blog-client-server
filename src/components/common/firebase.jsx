@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCQU6vh6uXAj4y8ERLa_MGTBBTiOQ3Ls70",
-    authDomain: "blogapp-f412c.firebaseapp.com",
-    projectId: "blogapp-f412c",
-    storageBucket: "blogapp-f412c.firebasestorage.app",
-    messagingSenderId: "733127438908",
-    appId: "1:733127438908:web:33c896a91c918bfb560939"
+    apiKey: import.meta.env.REACT_APP_APIKEY,
+    authDomain: import.meta.env.AUTHDOMAIN,
+    projectId: import.meta.env.PROJECTID,
+    storageBucket: import.meta.env.STORAGEBUCKET,
+    messagingSenderId: import.meta.env.MESSAGINGSENDERID,
+    appId: import.meta.env.APPID
 };
 
 // Initialize Firebase

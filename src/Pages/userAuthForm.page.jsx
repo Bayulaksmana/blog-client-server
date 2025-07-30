@@ -1,5 +1,5 @@
 import InputBox from "@/components/input.component"
-import { Link, Navigate, useNavigate } from "react-router"
+import { Link, Navigate } from "react-router"
 import AnimationWrapper from "@/components/common/page-animation"
 import { useContext, useRef } from "react"
 import { toast } from "react-toastify";
