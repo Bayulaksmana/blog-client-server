@@ -3,6 +3,10 @@ export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		extend: {
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+				myfont: ['MyFont', 'Inter', 'sans-serif'], // fallback ke Inter
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

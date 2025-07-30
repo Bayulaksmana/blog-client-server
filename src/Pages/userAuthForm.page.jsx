@@ -1,11 +1,12 @@
 import InputBox from "@/components/input.component"
-import { Link, Navigate } from "react-router"
+import { Link, Navigate, useNavigate } from "react-router"
 import AnimationWrapper from "@/components/common/page-animation"
 import { useContext, useRef } from "react"
 import { toast } from "react-toastify";
 import axios from "axios";
 import { storeInSession } from "@/components/common/session";
-import { UserContext } from "@/App";
+import { UserContext } from "@/components/common/user.context";
+import { authWithGoogle } from "@/components/common/firebase";
 
 const UserAuthForm = ({ type }) => {
     const authForm = useRef()
@@ -20,7 +21,7 @@ const UserAuthForm = ({ type }) => {
                 toast.error(response.data.error)
             })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         let serverRoute = type === "sign-in" ? "/signin" : "/signup"
         let form = new FormData(authForm.current)
@@ -29,11 +30,26 @@ const UserAuthForm = ({ type }) => {
             formData[key] = value
         }
         userAuthTroughServer(serverRoute, formData)
-        console.log(formData)
     }
+
+    const handleGoogleAuth = (e) => {
+        e.preventDefault()
+        authWithGoogle().then(user => {
+            let serverRoute = "/google-auth"
+            let formData = {
+                access_token: user.accessToken
+            }
+            userAuthTroughServer(serverRoute, formData)
+        })
+            .catch(err => {
+                toast.error('Trouble login trough google')
+                return console.log(err)
+            })
+    }
+
     return (
         access_token ?
-            <Navigate to="/" /> :
+            <Navigate to="/signin" /> :
             <AnimationWrapper key={type}>
                 <section className="h-cover flex items-center justify-center">
                     {/* <Toaster /> */}
@@ -87,7 +103,9 @@ const UserAuthForm = ({ type }) => {
                             <hr className="w-1/2 border-black" />
                         </div>
 
-                        <button className="btn-dark gap-3 flex justify-center items-center my-4 w-[80%]">
+                        <button className="btn-dark gap-3 flex justify-center items-center my-4 w-[80%]"
+                            onClick={handleGoogleAuth}
+                        >
                             <img src="/google.webp" alt="google-icon" className="w-5" />
                             Continue with google
                         </button>

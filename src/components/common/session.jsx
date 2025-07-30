@@ -7,7 +7,7 @@ const lookInSession = (key) => {
 }
 
 const removeFromSession = (key) => {
-    return sessionStorage.removeItem(key)
+    return sessionStorage.clear(key)
 }
 
 const logOutUser = () => {

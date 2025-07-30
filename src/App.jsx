@@ -17,11 +17,11 @@ import EditPost from "./routes/EditPost";
 import SettingsPage from "./routes/SettingsPage";
 import UserAuthForm from "./Pages/userAuthForm.page";
 import SinglePostPage from './routes/SinglePostPage';
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AnimationWrapper from "./components/common/page-animation";
 import { lookInSession } from "./components/common/session";
+import { UserContext } from "./components/common/user.context";
 
-export const UserContext = createContext({})
 
 const queryClient = new QueryClient()
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
