@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { format } from "timeago.js"
 import Noted from "../components/Noted";
-import AnimationWrapper from "@/components/common/page-animation";
+import AnimationWrapper from "@/common/page-animation";
 
 const fetchPosts = async (slug) => {
     const res = await axios.get(`${import.meta.env.VITE_API_URL_BE}/posts/${slug}`);

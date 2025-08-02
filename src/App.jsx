@@ -18,9 +18,10 @@ import SettingsPage from "./routes/SettingsPage";
 import UserAuthForm from "./Pages/userAuthForm.page";
 import SinglePostPage from './routes/SinglePostPage';
 import { useEffect, useState } from "react";
-import AnimationWrapper from "./components/common/page-animation";
-import { lookInSession } from "./components/common/session";
-import { UserContext } from "./components/common/user.context";
+import AnimationWrapper from "./common/page-animation";
+import { lookInSession } from "./common/session";
+import { UserContext } from "./common/user.context";
+import Editor from "./Pages/editor.page";
 
 
 const queryClient = new QueryClient()
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
             {
                 path: "signup",
                 element: <UserAuthForm type="sign-up" />
+            },
+            {
+                path: "editor",
+                element: <Editor type="sign-up" />
             }
         ]
     }
@@ -106,11 +111,11 @@ const App = () => {
     return (
         <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
             <QueryClientProvider client={queryClient}>
-                <UserContext.Provider value={{ userAuth, setUserAuth }}>
-                    <AnimationWrapper key={router}>
+                <AnimationWrapper key={router}>
+                    <UserContext.Provider value={{ userAuth, setUserAuth }}>
                         <RouterProvider router={router} />
-                    </AnimationWrapper>
-                </UserContext.Provider>
+                    </UserContext.Provider>
+                </AnimationWrapper>
                 <ToastContainer position='top-right' />
             </QueryClientProvider>
         </ClerkProvider>

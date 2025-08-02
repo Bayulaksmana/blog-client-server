@@ -1,15 +1,17 @@
-import { Link } from "react-router"
-import AnimationWrapper from "./common/page-animation"
-import { UserContext } from "./common/user.context"
+import { Link, useNavigate } from "react-router"
+import AnimationWrapper from "../common/page-animation"
+import { UserContext } from "../common/user.context"
+import { removeFromSession } from "../common/session"
 import { useContext } from "react"
-import { logOutUser } from "./common/session"
 
 const UserNavigationPanel = () => {
-    const { userAuth: { username }, setUserAuth } = useContext(UserContext)
+    const navigate = useNavigate();
 
+    const { userAuth: { username }, setUserAuth } = useContext(UserContext)
     const signOutUser = () => {
-        logOutUser("user")
+        removeFromSession("user")
         setUserAuth({ access_token: null })
+        navigate("/signin");
     }
 
     return (
@@ -18,7 +20,7 @@ const UserNavigationPanel = () => {
             className="absolute right-0 z-50"
         >
             <div className="bg-white block rounded-xl absolute right-0 border-gray-500 overflow-hidden duration-200">
-                <Link to="/write" className="link">
+                <Link to="/editor" className="link">
                     <svg className="w-5 h-5 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
                     </svg>
@@ -37,9 +39,9 @@ const UserNavigationPanel = () => {
                     <p>Settings</p>
                 </Link>
                 <span className="absolute border-t border-gray-500 w-[100%]"></span>
-                <button className="text-left p-4 hover:bg-gray-400 w-full py-2" onClick={signOutUser}>
+                <button onClick={signOutUser} className="text-left p-4 hover:bg-gray-400 w-full py-2">
                     <h1 className="font-bold text-[16px] text-center mg-1">Sign Out</h1>
-                    <p className="text-emerald-700 text-sm">@{username}</p>
+                    <p className="text-emerald-700 text-sm text-center">@{username}</p>
                 </button>
             </div>
         </AnimationWrapper>

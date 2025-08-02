@@ -1,12 +1,12 @@
 import InputBox from "@/components/input.component"
 import { Link, Navigate } from "react-router"
-import AnimationWrapper from "@/components/common/page-animation"
+import AnimationWrapper from "@/common/page-animation"
 import { useContext, useRef } from "react"
 import { toast } from "react-toastify";
 import axios from "axios";
-import { storeInSession } from "@/components/common/session";
-import { UserContext } from "@/components/common/user.context";
-import { authWithGoogle } from "@/components/common/firebase";
+import { storeInSession } from "@/common/session";
+import { UserContext } from "@/common/user.context";
+import { authWithGoogle } from "@/common/firebase";
 
 const UserAuthForm = ({ type }) => {
     const authForm = useRef()
@@ -49,7 +49,7 @@ const UserAuthForm = ({ type }) => {
 
     return (
         access_token ?
-            <Navigate to="/signin" /> :
+            <Navigate to="/" /> :
             <AnimationWrapper key={type}>
                 <section className="h-cover flex items-center justify-center">
                     {/* <Toaster /> */}

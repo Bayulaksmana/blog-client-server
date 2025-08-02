@@ -2,13 +2,14 @@ import { useAuth, useUser } from "@clerk/clerk-react"
 import LoginPage from "./LoginPage";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import Upload from "../components/Upload";
 import { Editor } from '@tinymce/tinymce-react';
 import Noted from "../components/Noted";
 import Image from "../components/Image";
+import { UserContext } from "@/common/user.context";
 
 
 const Write = () => {
@@ -20,12 +21,26 @@ const Write = () => {
     const [showPreview, setShowPreview] = useState(false);
     const [previewUrl, setPreviewUrl] = useState("");
     const navigate = useNavigate()
-    const { getToken } = useAuth()
-    const maxDescription = 400;
+    const maxDescription = 400
+    const { getToken } = useAuth();
+    let { userAuth: { access_token } } = useContext(UserContext)
+
+    const tokenId = async () => {
+        // Clerk Token
+        try {
+            const clerkToken = await getToken();
+            if (clerkToken) return clerkToken;
+        } catch (err) {
+            console.error("Failed to get Clerk token", err);
+        }
+        // Firebase Token (jika access_token adalah string)
+        if (access_token) return access_token;
+        throw new Error("No valid auth token available");
+    }
 
     const mutation = useMutation({
         mutationFn: async (newPost) => {
-            const token = await getToken()
+            const token = await tokenId()
             return axios.post(`${import.meta.env.VITE_API_URL_BE}/posts`, newPost, {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -37,10 +52,11 @@ const Write = () => {
             navigate(`/${res.data.slug}`)
         },
     });
+
     if (!isLoaded) {
         return <div className="">Loading ...</div>
     }
-    if (isLoaded && !isSignedIn) {
+    if (isLoaded && !isSignedIn && !access_token) {
         return <div className="flex flex-col gap-4">
             <h1 className="font-medium text-2xl text-center -mb-12 ">You must be login!</h1>
             <LoginPage />
@@ -59,6 +75,7 @@ const Write = () => {
         if (!cover?.filePath) return toast.error("Cover image is required!");
         mutation.mutate(data)
     }
+
     return (
         <div className='relative h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex flex-col gap-2 mt-4'>
             <Noted link="/" title="Home" page="Created Your Best Story" />

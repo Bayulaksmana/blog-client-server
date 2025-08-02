@@ -1,11 +1,11 @@
 import { Link } from "react-router"
 import MainCategories from "../components/MainCategories"
 import FeaturedPosts from "../components/FeaturedPosts"
-import PostList from "../components/PostList"
+// import PostList from "../components/PostList"
 import Noted from "../components/Noted"
-import MainPicture from "../components/MainPicture"
-import ListUniversitas from "../components/ListUniversitas"
-import AnimationWrapper from "@/components/common/page-animation"
+// import MainPicture from "../components/MainPicture"
+// import ListUniversitas from "../components/ListUniversitas"
+import AnimationWrapper from "@/common/page-animation"
 const Homepage = () => {
 
     return (
