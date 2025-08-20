@@ -20,7 +20,7 @@ import SinglePostPage from './routes/SinglePostPage';
 import { useEffect, useState } from "react";
 import AnimationWrapper from "./common/page-animation";
 import { lookInSession } from "./common/session";
-import { UserContext } from "./common/user.context";
+import { UserContext } from "./common/context";
 import Editor from "./Pages/editor.page";
 
 

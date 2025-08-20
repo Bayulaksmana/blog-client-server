@@ -9,7 +9,7 @@ import Upload from "../components/Upload";
 import { Editor } from '@tinymce/tinymce-react';
 import Noted from "../components/Noted";
 import Image from "../components/Image";
-import { UserContext } from "@/common/user.context";
+import { UserContext } from "@/common/context";
 
 
 const Write = () => {

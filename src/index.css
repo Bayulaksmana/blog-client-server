@@ -780,5 +780,5 @@ i {
 }
 
 .navbar {
-    @apply z-10 sticky top-0 flex items-center gap-12 w-full px-[5vw] py-5 h-[80px] border-b border-gray-300;
+    @apply z-10 sticky top-0 flex items-center gap-12 w-full h-[60px] border-b border-gray-300;
 }

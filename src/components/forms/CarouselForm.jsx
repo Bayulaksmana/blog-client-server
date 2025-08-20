@@ -114,7 +114,7 @@ const CarouselForm = () => {
     };
 
     return (
-        <div className="w-2/5 p-4 border-black border rounded-xl">
+        <div className="sm:w-2/5 p-4 border-black border rounded-xl">
             <h1 className="text-center font-myfont text-2xl border-b-2 border-black">Change Carousel Image</h1>
             <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="flex gap-2 items-center">

@@ -4,17 +4,14 @@ import Image from "./Image"
 import { useEffect } from "react"
 import { SignedIn, SignedOut, useAuth, UserButton, useUser } from "@clerk/clerk-react"
 import UserNavigationPanel from "./user.navigation.component"
-import { UserContext } from "../common/user.context"
-
+import { UserContext } from "../common/context"
 
 const Navbar = () => {
     const { user } = useUser()
     const { getToken } = useAuth();
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
-
     const [userNavPanel, setUserNavPanel] = useState(false)
-
     const { userAuth, userAuth: { access_token, profile_img } } = useContext(UserContext)
     const handleUserNavPanel = () => {
         setUserNavPanel((prev) => !prev)
@@ -24,12 +21,10 @@ const Navbar = () => {
             setUserNavPanel(false)
         }, 200);
     }
-
     const handleClick = () => {
         setOpen(!open); // toggle antara signin & signup
         navigate(!open ? "signup" : "signin");
     };
-
     useEffect(() => {
         getToken()
     });
@@ -57,7 +52,7 @@ const Navbar = () => {
                     {open ? "x" : "≡"}
                 </div>
                 {/* mobile link list */}
-                <div className={`gap-8 text-lg w-full h-screen left-0 top-full font-semibold bg-[#E6E6FF] q flex flex-col items-center justify-center absolute transition-all ease-in-out ${open ? "show" : "hide"}`}>
+                <div className={`gap-8 text-md w-full h-screen left-0 top-full font-semibold bg-[#E6E6FF] q flex flex-col items-center justify-center absolute transition-all ease-in-out ${open ? "show" : "hide"}`}>
                     {navLinks.map((link) => (
                         <Link
                             key={link.to}
@@ -68,7 +63,7 @@ const Navbar = () => {
                             {link.label}
                         </Link>
                     ))}
-                    {isAdmin && <Link to="/settings" onClick={() => setOpen(false)} className="hover:text-orange-400 transition">Settings</Link>}
+                    {isAdmin && userAuth && <Link to="/settings" onClick={() => setOpen(false)} className="hover:text-orange-400 transition">Settings</Link>}
                     <SignedOut>
                         <Link to="/login">
                             <button onClick={() => setOpen(false)} className="py-1.5 px-3 rounded-3xl bg-emerald-600 text-white hover:bg-emerald-700 transition">🔐</button>
@@ -83,7 +78,7 @@ const Navbar = () => {
             {/* end section navigation mobile */}
 
             {/* start section navigation menu desktop */}
-            <div className="hidden sm:flex items-center text-lg gap-4 md:gap-4 lg:gap-12 font-medium text-gray-800 ">
+            <div className="hidden sm:flex items-center text-md gap-4 md:gap-4 lg:gap-12 font-medium text-gray-800 ">
                 {navLinks.map((link) => (
                     <Link
                         key={link.to}
@@ -93,10 +88,10 @@ const Navbar = () => {
                         {link.label}
                     </Link>
                 ))}
-                {isAdmin && <Link to="/settings" className="hover:text-orange-400 transition">Settings</Link>}
+                {isAdmin || userAuth && <Link to="/settings" className={`hover:text-emerald-600 transition ${isActive((prev) => prev) ? "text-emerald-600 font-semibold" : ""}`}>Settings</Link>}
                 <SignedOut>
                     <Link to="/login">
-                        <button className="py-1.5 px-3 rounded-3xl bg-emerald-600 text-white text-xs hover:bg-emerald-500 transition">🔐</button>
+                        {/* <button className="py-1.5 px-3 rounded-3xl bg-emerald-600 text-white text-xs hover:bg-emerald-500 transition">🔐</button> */}
                     </Link>
                 </SignedOut>
                 <SignedIn>

@@ -32,12 +32,15 @@ const Upload = ({ children, type, setProgress, setData }) => {
         toast.error("Image upload failed!")
     }
     const onSuccess = (res) => {
-        console.log(res)
         setData(res)
+        toast.success("Uploaded Image 👍")
     }
     const onUploadProgress = (progress) => {
-        console.log(progress)
+        progress = toast.loading("Uploading Image...")
         setProgress(Math.round((progress.loaded / progress.total) * 100))
+        setTimeout(() => {
+            toast.dismiss(progress)
+        }, 1000)
     }
 
     return (

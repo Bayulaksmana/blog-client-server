@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router"
 import AnimationWrapper from "../common/page-animation"
-import { UserContext } from "../common/user.context"
+import { UserContext } from "../common/context"
 import { removeFromSession } from "../common/session"
 import { useContext } from "react"
 

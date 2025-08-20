@@ -5,7 +5,7 @@ import { useContext, useRef } from "react"
 import { toast } from "react-toastify";
 import axios from "axios";
 import { storeInSession } from "@/common/session";
-import { UserContext } from "@/common/user.context";
+import { UserContext } from "@/common/context";
 import { authWithGoogle } from "@/common/firebase";
 
 const UserAuthForm = ({ type }) => {
